@@ -34,3 +34,7 @@ app.get("/fibonacci/:n", (req, res) => {
   const result = calculateFib(n);
   res.json({ n, フィボナッチ数: result });
 });
+
+app.use((req, res) => {
+  res.status(404).json({ エラー: "ページが見つかりません" });
+});
