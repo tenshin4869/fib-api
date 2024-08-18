@@ -21,3 +21,16 @@ function calculateFib(n) {
 // console.log('フィボナッチ(0):', calculateFib(0));
 // console.log('フィボナッチ(1):', calculateFib(1));
 // console.log('フィボナッチ(10):', calculateFib(10));
+
+app.get("/fibonacci/:n", (req, res) => {
+  const n = parseInt(req.params.n);
+
+  if (isNaN(n) || n < 0) {
+    return res
+      .status(400)
+      .json({ エラー: "無効な入力です。0以上の整数を入力してください。" });
+  }
+
+  const result = calculateFib(n);
+  res.json({ n, フィボナッチ数: result });
+});
