@@ -24,7 +24,7 @@ app.get("/fib", (req, res) => {
   }
 
   const result = calculateFib(n);
-  res.json({ n, フィボナッチ数: result });
+  res.json({ result: result });
 });
 
 app.use((req, res) => {
