@@ -1,6 +1,8 @@
 const express = require("express");
+const config = require("./config");
+
 const app = express();
-const port = process.env.PORT || 3000;
+const port = config.port;
 
 let server;
 
@@ -42,7 +44,7 @@ function stopServer() {
   }
 }
 
-if (process.env.NODE_ENV !== "test") {
+if (config.nodeEnv !== "test") {
   startServer();
 }
 
