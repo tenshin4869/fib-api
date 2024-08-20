@@ -14,7 +14,7 @@ function calculateFib(n) {
   return b;
 }
 
-app.get("/fibonacci/:n", (req, res) => {
+app.get("/fib", (req, res) => {
   const n = Number(req.params.n);
 
   if (isNaN(n) || n < 0 || !Number.isInteger(n)) {
