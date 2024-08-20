@@ -1,20 +1,11 @@
 const express = require("express");
 const config = require("./config");
+const calculateFib = require("./fibCalculator");
 
 const app = express();
 const port = config.port;
 
 let server;
-
-function calculateFib(n) {
-  if (n <= 1) return BigInt(n);
-  let a = BigInt(0),
-    b = BigInt(1);
-  for (let i = 2; i <= n; i++) {
-    [a, b] = [b, a + b];
-  }
-  return b;
-}
 
 app.get("/fib", (req, res) => {
   const n = parseFloat(req.query.n);
