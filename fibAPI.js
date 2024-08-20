@@ -15,12 +15,12 @@ function calculateFib(n) {
 }
 
 app.get("/fib", (req, res) => {
-  const n = Number(req.params.n);
+  const n = Number(req.query.n);
 
   if (isNaN(n) || n < 0 || !Number.isInteger(n)) {
     return res
       .status(400)
-      .json({ エラー: "無効な入力です。0以上の整数を入力してください。" });
+      .json({ error: "無効な入力です。0以上の整数を入力してください。" });
   }
 
   const result = calculateFib(n);
