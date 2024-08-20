@@ -18,9 +18,7 @@ app.get("/fib", (req, res) => {
   const n = Number(req.query.n);
 
   if (isNaN(n) || n < 0 || !Number.isInteger(n)) {
-    return res
-      .status(400)
-      .json({ error: "無効な入力です。0以上の整数を入力してください。" });
+    return res.status(400).json({ status: 400, message: "Bad request." });
   }
 
   const result = calculateFib(n);
